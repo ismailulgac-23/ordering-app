@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./prod.db"
+}
+
+model Order {
+  uuid          String         @id @default(uuid())
+  printPageType String
+  createdAt     DateTime       @default(now())
+  products      OrderProduct[]
+  orderInfos    OrderInfo[]
+}
+
+model OrderProduct {
+  uuid        String   @id @default(uuid())
+  productUuid String
+  orderUuid   String
+  order       Order?   @relation(fields: [orderUuid], references: [uuid])
+  product     Product? @relation(fields: [productUuid], references: [uuid])
+}
+
+model OrderInfo {
+  uuid      String @id @default(uuid())
+  name      String
+  value     String
+  rowNumber Int
+  orderUuid String
+  order     Order? @relation(fields: [orderUuid], references: [uuid])
+}
+
+model Product {
+  uuid          String         @id @default(uuid())
+  title         String
+  price         Float
+  image         String
+  orderProducts OrderProduct[]
+}
