@@ -110,11 +110,11 @@ export const updateOrder = (req: Request, res: Response) => makeProcess({
 
     for (let index = 0; index < willDeleteOrderInfos.length; index++) {
       const info = willDeleteOrderInfos[index];
-      deleteOneOrderInfo(info);
+      await deleteOneOrderInfo(info);
     }
     for (let index = 0; index < selectedOrderInfos.length; index++) {
       const info = selectedOrderInfos[index];
-      updateOneOrderInfo(info);
+      await updateOneOrderInfo(info);
     }
 
     return res.status(200).json({
