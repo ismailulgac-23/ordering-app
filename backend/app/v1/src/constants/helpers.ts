@@ -5,9 +5,7 @@ export const createUUID = (): string => uuidv4();
 
 export const makeProcess = async ({ res, cb, errorMessage = "Bir hata oluştu!" }: IMakeProcess) => {
   try {
-    setTimeout(async () => {
-      await cb();
-    }, 1200);
+    await cb();
   } catch (error: any) {
     console.log('error', error)
     if (res) {

@@ -17,8 +17,11 @@ export const ordersData: Order[] = [
 
 export default () => makeProcess({
   cb: async () => {
-    await db.order.createMany({
-      data: ordersData
-    });
+    for (let index = 0; index < ordersData.length; index++) {
+      const element = ordersData[index];
+      await db.order.create({
+        data: element
+      });
+    }
   }
 });

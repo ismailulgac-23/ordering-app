@@ -25,8 +25,11 @@ export const productsData: Product[] = [
 
 export default () => makeProcess({
   cb: async () => {
-    await db.product.createMany({
-      data: productsData
-    });
+    for (let index = 0; index < productsData.length; index++) {
+      const element = productsData[index];
+      await db.product.create({
+        data: element
+      });
+    }
   }
 });
