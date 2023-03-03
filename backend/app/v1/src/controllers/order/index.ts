@@ -1,4 +1,3 @@
-import { OrderInfo } from "@prisma/client";
 import { Request, Response } from "express";
 import { makeProcess } from "../../constants/helpers";
 import db from "../../services/db";

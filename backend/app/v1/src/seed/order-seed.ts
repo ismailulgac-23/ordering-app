@@ -1,4 +1,4 @@
-import { Order, PRINT_PAGE_TYPE, Product } from "@prisma/client";
+import { Order } from "@prisma/client";
 import { createUUID, makeProcess } from "../constants/helpers";
 import db from "../services/db";
 

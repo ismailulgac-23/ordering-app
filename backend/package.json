@@ -23,15 +23,20 @@
   },
   "homepage": "https://github.com/ismailulgac-23/mayzor-backend-test-case#readme",
   "devDependencies": {
-    "@prisma/client": "^4.10.1",
+    "@prisma/client": "^4.11.0",
     "@types/node": "^18.14.1",
     "@types/uuid": "^9.0.1",
-    "prisma": "^4.10.1",
+    "prisma": "^4.11.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5",
     "uuid": "^9.0.0"
   },
   "prisma": {
     "schema": "./app/v1/src/services/db/schema.prisma"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "path": "^0.12.7"
   }
 }
